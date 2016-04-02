@@ -5,7 +5,7 @@ echo "installing pathogen"
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
     curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
-cd ~/.vim/bundletest
+cd ~/.vim/bundle
 
 # nerdtree
 echo "installing nerdtree"
