@@ -43,6 +43,6 @@ git submodule update --init --recursive
 
 cd `dirname $0`
 mv ~/.vimrc ~/.vimrc.bak
-cp .vimrc ~
+cp `dirname $0`/.vimrc ~
 mv ~/.Xresources ~/.Xresources.bak
-cp .Xresources ~
+cp `dirname $0`/.Xresources ~
