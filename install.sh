@@ -17,6 +17,8 @@ git clone https://github.com/scrooloose/syntastic
 
 # vim-airline
 echo "installing vim-airline"
+https://github.com/powerline/fonts && cd fonts
+./install.sh
 git clone https://github.com/bling/vim-airline
 
 # solarized
@@ -37,4 +39,9 @@ git clone https://github.com/valloric/youcompleteme
 cd youcompleteme
 git submodule update --init --recursive
 ./install.py
-cd ..
+
+cd `dirname $0`
+mv ~/.vimrc ~/.vimrc.bak
+cp .vimrc ~
+mv ~/.Xresources ~/.Xresources.bak
+cp .Xresources ~
