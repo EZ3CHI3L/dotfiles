@@ -1,5 +1,14 @@
 #!/bin/sh
 
+mydir=$(pwd)
+
+if [ -d ~/.vim ]
+then
+    echo "backing up vim/ dir"
+    [ -d ~/.vimbak.d ] && rm -rf ~/.vimbak.d
+    mv -f ~/.vim ~/.vimbak.d
+fi
+
 # pathogen
 echo "installing pathogen"
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
@@ -19,7 +28,7 @@ git clone https://github.com/scrooloose/syntastic
 echo "installing vim-airline"
 git clone https://github.com/powerline/fonts && cd fonts
 ./install.sh
-cd `dirname $0`
+cd ~/.vim/bundle
 git clone https://github.com/bling/vim-airline
 
 # solarized
@@ -41,11 +50,18 @@ cd youcompleteme
 git submodule update --init --recursive
 ./install.py
 
-cd `dirname $0`
-mv ~/.vimrc ~/.vimrc.bak
-yes | cp -f `dirname $0`/.vimrc ~
-mv ~/.Xresources ~/.Xresources.bak
-yes | cp -f `dirname $0`/.Xresources ~
+if [ -f ~/.vimrc ]
+then
+    echo "backing up vimrc"
+    mv ~/.vimrc ~/.vimrc.bak
+fi
+yes | cp -f ${mydir}/.vimrc ~/.vimrc
+if [ -f ~/.Xresources ]
+then
+    echo "backing up Xresources"
+    mv ~/.Xresources ~/.Xresources.bak
+fi
+yes | cp -f ${mydir}/.Xresources ~/.Xresources
 xrdb ~/.Xresources
 
 echo "Done!"
