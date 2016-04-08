@@ -17,8 +17,9 @@ git clone https://github.com/scrooloose/syntastic
 
 # vim-airline
 echo "installing vim-airline"
-https://github.com/powerline/fonts && cd fonts
+git clone https://github.com/powerline/fonts && cd fonts
 ./install.sh
+cd `dirname $0`
 git clone https://github.com/bling/vim-airline
 
 # solarized
