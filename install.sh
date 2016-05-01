@@ -10,18 +10,29 @@ then
 fi
 
 # check for curl
-if [ $(dpkg-query -W -f='${Status}' curl 2>/dev/null | grep -c "ok installed") -eq 0 ];
+if [ $(dpkg-query -W -f='${Status}' curl 2>/dev/null | \
+    grep -c "ok installed") -eq 0 ];
 then
     echo "installing curl";
     sudo apt-get -y install curl;
 fi
 
 # check for cmake
-if [ $(dpkg-query -W -f='${Status}' cmake 2>/dev/null | grep -c "ok installed") -eq 0 ];
+if [ $(dpkg-query -W -f='${Status}' cmake 2>/dev/null | \
+    grep -c "ok installed") -eq 0 ];
 then
     echo "installing cmake";
     sudo apt-get -y install cmake;
 fi
+
+# check for xrdb (hey, my vagrant box doesn't have it ok)
+if [ $(dpkg-query -W -f='${Status}' x11-xserver-utils 2>/dev/null | \
+    grep -c "ok installed") -eq 0 ];
+then
+    echo "installing x11 utils (for xrdb)";
+    sudo apt-get -y install x11-xserver-utils;
+fi
+
 
 # pathogen
 echo "installing pathogen"
