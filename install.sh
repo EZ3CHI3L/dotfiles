@@ -10,14 +10,14 @@ then
 fi
 
 # check for curl
-if [ $(dpkg-query -W -f='${Status}' curl 2>/dev/null | grep -c "ok") -eq 0 ];
+if [ $(dpkg-query -W -f='${Status}' curl 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then
     echo "installing curl";
     sudo apt-get install curl;
 fi
 
 # check for cmake
-if [ $(dpkg-query -W -f='${Status}' cmake 2>/dev/null | grep -c "ok") -eq 0 ];
+if [ $(dpkg-query -W -f='${Status}' cmake 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then
     echo "installing cmake";
     sudo apt-get install cmake;
