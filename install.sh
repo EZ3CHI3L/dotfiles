@@ -13,14 +13,14 @@ fi
 if [ $(dpkg-query -W -f='${Status}' curl 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then
     echo "installing curl";
-    sudo apt-get install curl;
+    sudo apt-get -y install curl;
 fi
 
 # check for cmake
 if [ $(dpkg-query -W -f='${Status}' cmake 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then
     echo "installing cmake";
-    sudo apt-get install cmake;
+    sudo apt-get -y install cmake;
 fi
 
 # pathogen
