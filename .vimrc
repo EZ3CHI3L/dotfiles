@@ -9,7 +9,19 @@ set expandtab
 set shiftwidth=4
 set smarttab
 set tabstop=4
+set cursorline
 set colorcolumn=80
+set wrap
+set textwidth=79
+set scrolloff=7
+set nobackup
+set noswapfile
+set wildmenu
+set wildmode=longest,list
+set wildignore+=*.o
+set ttyfast
+set undodir=~/.vim/undo_hist
+set undofile
 
 " solarized
 set background=dark
