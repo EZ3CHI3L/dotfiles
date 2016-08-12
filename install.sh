@@ -33,7 +33,6 @@ then
     sudo apt-get -y install x11-xserver-utils;
 fi
 
-
 # pathogen
 echo "installing pathogen"
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
@@ -80,13 +79,13 @@ then
     echo "backing up vimrc"
     mv ~/.vimrc ~/.vimrc.bak
 fi
-yes | cp -f ${mydir}/.vimrc ~/.vimrc
+yes | cp -f ${mydir}/vimrc ~/.vimrc
 if [ -f ~/.Xresources ]
 then
     echo "backing up Xresources"
     mv ~/.Xresources ~/.Xresources.bak
 fi
-yes | cp -f ${mydir}/.Xresources ~/.Xresources
+yes | cp -f ${mydir}/Xresources ~/.Xresources
 xrdb ~/.Xresources
 
 echo "Done!"
