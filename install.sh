@@ -33,6 +33,15 @@ then
     sudo apt-get -y install x11-xserver-utils;
 fi
 
+
+# check for python-dev
+if [ $(dpkg-query -W -f='${Status}' python-dev 2>/dev/null | \
+    grep -c "ok installed") -eq 0 ];
+then
+    echo "installing python-dev";
+    sudo apt-get -y install python-dev;
+fi
+
 # pathogen
 echo "installing pathogen"
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
