@@ -3,6 +3,7 @@ execute pathogen#infect()
 
 " general
 set guicursor+=n-v-c:blinkon0
+set mouse=a
 syntax on
 set relativenumber
 set number
